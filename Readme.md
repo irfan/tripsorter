@@ -1,4 +1,4 @@
-[Trip Sort](https://github.com/irfan/tripsort) 
+[Trip Sort](https://github.com/irfan/tripsorter) 
 ==============================================
 Description 
 ----------------------------------------------
