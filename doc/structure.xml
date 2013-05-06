@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project version="2.0.0a12" title="">
+  <file path="bootstrap.php" hash="25f7ceb9a09208c2e302f4e13020e123" package="Default">
+    <docblock line="2">
+      <description>Short description:
+System bootstrap file</description>
+      <long-description></long-description>
+      <tag line="2" name="author" description="Irfan Durmus"/>
+    </docblock>
+    <include line="38" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <function namespace="global" line="24" package="Default">
+      <name>__autoload</name>
+      <full_name>\__autoload</full_name>
+      <docblock line="19">
+        <description>Autoloader for trip sorter.</description>
+        <long-description>&lt;p&gt;Checks namespaces and loads classes automatically.&lt;/p&gt;</long-description>
+        <tag line="19" name="param" description="class names with namespace" type="\global\" variable="$class"/>
+      </docblock>
+      <argument line="24">
+        <name>$class</name>
+        <default></default>
+        <type/>
+      </argument>
+    </function>
+  </file>
+  <file path="lib/tripsort/assets/CardAbstract.php" hash="8caec26bbf1b2ff0bc15d7480aad2946" package="Default">
+    <docblock line="2">
+      <description>Abstract class for card</description>
+      <long-description></long-description>
+    </docblock>
+    <class final="false" abstract="true" namespace="tripsort\assets" line="14" package="Default">
+      <extends/>
+      <name>CardAbstract</name>
+      <full_name>\tripsort\assets\CardAbstract</full_name>
+      <docblock line="10">
+        <description>Extends by Cards.</description>
+        <long-description>&lt;p&gt;When you add new kind of Card class you should extend it by CardAbstract.&lt;/p&gt;</long-description>
+      </docblock>
+    </class>
+  </file>
+  <file path="lib/tripsort/assets/CardFactory.php" hash="7e15cd1afac0d9983ee4059896c989fd" package="Default">
+    <docblock line="2">
+      <description>CardFactory class in factory pattern.</description>
+      <long-description></long-description>
+    </docblock>
+    <class final="false" abstract="true" namespace="tripsort\assets" line="15" package="Default">
+      <extends/>
+      <name>CardFactory</name>
+      <full_name>\tripsort\assets\CardFactory</full_name>
+      <docblock line="10">
+        <description>CardFactory class in factory pattern.</description>
+        <long-description>&lt;p&gt;Creates a kind of travel card, if card type is not defined then creates an instance of CommonCard.&lt;/p&gt;</long-description>
+      </docblock>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="tripsort\assets" line="22" package="Default">
+        <name>create</name>
+        <full_name>create</full_name>
+        <docblock line="17">
+          <description>Creates an instance of a card.</description>
+          <long-description></long-description>
+          <tag line="17" name="return" description="If $card['type] is not defined then it returns CommonCard as default." type="\tripsort\assets\cards\CommonCard">
+            <type by_reference="false">\tripsort\assets\cards\CommonCard</type>
+          </tag>
+          <tag line="17" name="param" description="" type="array" variable="$card">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="22">
+          <name>$card</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="lib/tripsort/assets/cards/CommonCard.php" hash="49496c8c8529bfe7ba8883c70c480b65" package="Default">
+    <docblock line="2">
+      <description>The class uses for creating a card to use of passanger</description>
+      <long-description></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="tripsort\assets\cards" line="14" package="Default">
+      <extends>\tripsort\assets\CardAbstract</extends>
+      <name>CommonCard</name>
+      <full_name>\tripsort\assets\cards\CommonCard</full_name>
+      <docblock line="10">
+        <description>The class uses for creating a card to use of passanger</description>
+        <long-description></long-description>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="19" namespace="tripsort\assets\cards" package="Default">
+        <name>$source</name>
+        <default></default>
+        <docblock line="16">
+          <description>Source point of the ticket.</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="24" namespace="tripsort\assets\cards" package="Default">
+        <name>$destination</name>
+        <default></default>
+        <docblock line="21">
+          <description>Destination of the ticket.</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="29" namespace="tripsort\assets\cards" package="Default">
+        <name>$vehicle</name>
+        <default></default>
+        <docblock line="26">
+          <description>Vehicle type of the ticket.</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="34" namespace="tripsort\assets\cards" package="Default">
+        <name>$seat</name>
+        <default></default>
+        <docblock line="31">
+          <description>Seat number of the ticket.</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="39" namespace="tripsort\assets\cards" package="Default">
+        <name>$gate</name>
+        <default></default>
+        <docblock line="36">
+          <description>Gate # of the ticket.</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="tripsort\assets\cards" line="45" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="41">
+          <description>Constructor for the CommonCard class.</description>
+          <long-description></long-description>
+          <tag line="41" name="param" description="" type="array" variable="$card">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="45">
+          <name>$card</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="tripsort\assets\cards" line="59" package="Default">
+        <name>__get</name>
+        <full_name>__get</full_name>
+        <docblock line="55">
+          <description>PHP Magic getter</description>
+          <long-description></long-description>
+          <tag line="55" name="param" description="" type="string" variable="$property">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="59">
+          <name>$property</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="lib/tripsort/assets/transportable/Person.php" hash="65b3302792f1cfcfe0c862d8642cd038" package="Default">
+    <docblock line="2">
+      <description>Person class who'll make the trip.</description>
+      <long-description>&lt;p&gt;You will need the class to create a trip or a person who has a name please use this class.&lt;/p&gt;</long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="tripsort\assets\transportable" line="13" package="Default">
+      <extends>\tripsort\assets\TransportableAbstract</extends>
+      <name>Person</name>
+      <full_name>\tripsort\assets\transportable\Person</full_name>
+      <docblock line="10">
+        <description>Person class who'll make the trip</description>
+        <long-description></long-description>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="18" namespace="tripsort\assets\transportable" package="Default">
+        <name>$name</name>
+        <default></default>
+        <docblock line="15">
+          <description>Name of the person.</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="tripsort\assets\transportable" line="25" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="20">
+          <description>Constructor
+Sets the name as a person name.</description>
+          <long-description></long-description>
+          <tag line="20" name="param" description="" type="string" variable="$name">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="25">
+          <name>$name</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="tripsort\assets\transportable" line="33" package="Default">
+        <name>__get</name>
+        <full_name>__get</full_name>
+        <docblock line="29">
+          <description>PHP Magic getter</description>
+          <long-description></long-description>
+          <tag line="29" name="param" description="" type="string" variable="$property">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="33">
+          <name>$property</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="lib/tripsort/assets/TransportableAbstract.php" hash="725bda1bb982d92923e0df00ef08d40b" package="Default">
+    <docblock line="2">
+      <description>Abstract class for person
+If you would like to create a new class like Bag, Ship please extend it by TransportableAbstract.</description>
+      <long-description></long-description>
+    </docblock>
+    <class final="false" abstract="true" namespace="tripsort\assets" line="13" package="Default">
+      <extends/>
+      <name>TransportableAbstract</name>
+      <full_name>\tripsort\assets\TransportableAbstract</full_name>
+      <docblock line="9">
+        <description>Abstract class for transportable any kind of object.</description>
+        <long-description>&lt;p&gt;To ship, travel or moving a vehicle from a place to another place you can extend it.&lt;/p&gt;</long-description>
+      </docblock>
+    </class>
+  </file>
+  <file path="lib/tripsort/modules/travel/Travel.php" hash="2fd9e8fe083c34eec76c0f9e8b13affe" package="Default">
+    <docblock line="2">
+      <description>Travel class.</description>
+      <long-description>&lt;p&gt;Sorts a stack of Cards to make a trip in correct order.&lt;/p&gt;</long-description>
+      <tag line="2" name="author" description="Irfan Durmus"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="tripsort\modules\travel" line="23" package="Default">
+      <extends/>
+      <name>Travel</name>
+      <full_name>\tripsort\modules\travel\Travel</full_name>
+      <docblock line="16">
+        <description>Create more than one Card class and give it to this class with passengers.</description>
+        <long-description>&lt;p&gt;Passengers should be instances of Person class.
+You could able to order the trip cards by calling sortTickets() method.&lt;/p&gt;</long-description>
+        <tag line="16" name="param" description="An array of instances of the Person class." type="array" variable="$passengers">
+          <type by_reference="false">array</type>
+        </tag>
+        <tag line="16" name="param" description="An array of the Card class." type="array" variable="$tickets">
+          <type by_reference="false">array</type>
+        </tag>
+      </docblock>
+      <property final="false" static="false" visibility="public" line="28" namespace="tripsort\modules\travel" package="Default">
+        <name>$tickets</name>
+        <default>null</default>
+        <docblock line="25">
+          <description>An unordered array of Card class.</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="public" line="33" namespace="tripsort\modules\travel" package="Default">
+        <name>$passengers</name>
+        <default>null</default>
+        <docblock line="30">
+          <description>Instance(s) of Person class</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="tripsort\modules\travel" line="41" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="35">
+          <description>Constructor of the Travel</description>
+          <long-description></long-description>
+          <tag line="35" name="param" description="An array of Person class." type="array" variable="$passengers">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="35" name="param" description="An array of unsorted passenger cards." type="array" variable="$tickets">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="35" name="return" description="" type="\tripsort\modules\travel\Travel">
+            <type by_reference="false">\tripsort\modules\travel\Travel</type>
+          </tag>
+        </docblock>
+        <argument line="41">
+          <name>$passengers</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="41">
+          <name>$tickets</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="tripsort\modules\travel" line="51" package="Default">
+        <name>getPassengers</name>
+        <full_name>getPassengers</full_name>
+        <docblock line="47">
+          <description>Returns a string of the passengers' name.</description>
+          <long-description></long-description>
+          <tag line="47" name="return" description="of the passenger(s)." type="\tripsort\modules\travel\name">
+            <type by_reference="false">\tripsort\modules\travel\name</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="tripsort\modules\travel" line="65" package="Default">
+        <name>setPassengers</name>
+        <full_name>setPassengers</full_name>
+        <docblock line="60">
+          <description>Sets the passenger(s)</description>
+          <long-description></long-description>
+          <tag line="60" name="param" description="" type="array" variable="$passengers">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="60" name="return" description="" type="\tripsort\modules\travel\Travel">
+            <type by_reference="false">\tripsort\modules\travel\Travel</type>
+          </tag>
+        </docblock>
+        <argument line="65">
+          <name>$passengers</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="tripsort\modules\travel" line="81" package="Default">
+        <name>addPassenger</name>
+        <full_name>addPassenger</full_name>
+        <docblock line="76">
+          <description>adds passenger(s) to the passengers list.</description>
+          <long-description></long-description>
+          <tag line="76" name="param" description="an instance of Person class." type="\tripsort\assets\transportable\Person" variable="$passenger">
+            <type by_reference="false">\tripsort\assets\transportable\Person</type>
+          </tag>
+          <tag line="76" name="return" description="" type="\tripsort\modules\travel\Travel">
+            <type by_reference="false">\tripsort\modules\travel\Travel</type>
+          </tag>
+        </docblock>
+        <argument line="81">
+          <name>$passenger</name>
+          <default></default>
+          <type>\tripsort\assets\transportable\Person</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="tripsort\modules\travel" line="97" package="Default">
+        <name>getTickets</name>
+        <full_name>getTickets</full_name>
+        <docblock line="94">
+          <description>returns an array of passenger cards.</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="tripsort\modules\travel" line="106" package="Default">
+        <name>setTickets</name>
+        <full_name>setTickets</full_name>
+        <docblock line="101">
+          <description>Setter for tickets</description>
+          <long-description></long-description>
+          <tag line="101" name="param" description="an array of unsorted passenger cards." type="array" variable="$tickets">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="101" name="return" description="" type="\tripsort\modules\travel\Travel">
+            <type by_reference="false">\tripsort\modules\travel\Travel</type>
+          </tag>
+        </docblock>
+        <argument line="106">
+          <name>$tickets</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="tripsort\modules\travel" line="124" package="Default">
+        <name>addTicket</name>
+        <full_name>addTicket</full_name>
+        <docblock line="118">
+          <description>Adds a ticket to the ticket stack.</description>
+          <long-description></long-description>
+          <tag line="118" name="param" description="an instance of Card class." type="\tripsort\modules\travel\Card" variable="$ticket">
+            <type by_reference="false">\tripsort\modules\travel\Card</type>
+          </tag>
+          <tag line="118" name="return" description="" type="\tripsort\modules\travel\Travel">
+            <type by_reference="false">\tripsort\modules\travel\Travel</type>
+          </tag>
+        </docblock>
+        <argument line="124">
+          <name>$ticket</name>
+          <default></default>
+          <type>\tripsort\modules\travel\Card</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="tripsort\modules\travel" line="140" package="Default">
+        <name>sortTickets</name>
+        <full_name>sortTickets</full_name>
+        <docblock line="136">
+          <description>Sorts tickets as ascended</description>
+          <long-description></long-description>
+          <tag line="136" name="return" description="" type="\tripsort\modules\travel\Travel">
+            <type by_reference="false">\tripsort\modules\travel\Travel</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="tripsort\modules\travel" line="148" package="Default">
+        <name>descSortTickets</name>
+        <full_name>descSortTickets</full_name>
+        <docblock line="145">
+          <description>Sorts tickets as descended</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+  </file>
+  <file path="lib/tripsort/utils/interfaces/SortInterface.php" hash="8cf327ffa89dc086a7777f3436eaa480" package="Default">
+    <docblock line="2">
+      <description>Interface for sorting algorithms.</description>
+      <long-description></long-description>
+    </docblock>
+    <interface namespace="tripsort\utils\interfaces" line="11" package="Default">
+      <name>SortInterface</name>
+      <full_name>\tripsort\utils\interfaces\SortInterface</full_name>
+      <docblock line="8">
+        <description>Sort algorithms should implement this interface.</description>
+        <long-description></long-description>
+      </docblock>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="tripsort\utils\interfaces" line="16" package="Default">
+        <name>sort</name>
+        <full_name>sort</full_name>
+        <docblock line="12">
+          <description>Sort method should implement.</description>
+          <long-description></long-description>
+          <tag line="12" name="param" description="" type="array" variable="$items">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="16">
+          <name>$items</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </interface>
+  </file>
+  <file path="lib/tripsort/utils/sorters/ArraySort.php" hash="8668ec149a80ac9f42e377a1ebdd7690" package="Default">
+    <docblock line="2">
+      <description>Usage:
+ArraySort::sort($array);</description>
+      <long-description>&lt;p&gt;Description:&lt;/p&gt;
+
+&lt;p&gt;Two of the methods for each object are mandatory members.
+1. source member: The start point of the array. (Ex: $item-&gt;getSource())
+2. destination member: The end point of the array. (Ex: $item-&gt;getDestination())&lt;/p&gt;
+
+&lt;p&gt;If there is no member which has same source with any other element's destination value
+then its the last element of the array.
+Otherwise there should be other member which has same value in its source.&lt;/p&gt;</long-description>
+      <tag line="2" name="param" description="an array which has array members which contains at least 2 member" type="\" variable="$items"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="tripsort\utils\sorters" line="27" package="Default">
+      <extends/>
+      <implements>\tripsort\utils\interfaces\SortInterface</implements>
+      <name>ArraySort</name>
+      <full_name>\tripsort\utils\sorters\ArraySort</full_name>
+      <docblock line="24">
+        <description>Sorts an array depends their source and destination.</description>
+        <long-description></long-description>
+      </docblock>
+      <property final="false" static="true" visibility="protected" line="32" namespace="tripsort\utils\sorters" package="Default">
+        <name>$items</name>
+        <default></default>
+        <docblock line="29">
+          <description>Stores an array which contain all tickets as unordered</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property final="false" static="true" visibility="protected" line="37" namespace="tripsort\utils\sorters" package="Default">
+        <name>$arranged</name>
+        <default>array()</default>
+        <docblock line="34">
+          <description>Stores an array which contains all tickets as ordered</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property final="false" static="true" visibility="protected" line="42" namespace="tripsort\utils\sorters" package="Default">
+        <name>$tmp</name>
+        <default>array()</default>
+        <docblock line="39">
+          <description>Stores an array which will check in second or third step.</description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="tripsort\utils\sorters" line="49" package="Default">
+        <name>sort</name>
+        <full_name>sort</full_name>
+        <docblock line="44">
+          <description>Sorts and returns the array</description>
+          <long-description></long-description>
+          <tag line="44" name="param" description="" type="array" variable="$items">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="44" name="return" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="49">
+          <name>$items</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <package name="Default" full_name="Default"/>
+  <namespace name="global" full_name="global"/>
+  <namespace name="tripsort" full_name="tripsort">
+    <namespace name="assets" full_name="tripsort\assets">
+      <namespace name="cards" full_name="tripsort\assets\cards"/>
+      <namespace name="transportable" full_name="tripsort\assets\transportable"/>
+    </namespace>
+    <namespace name="modules" full_name="tripsort\modules">
+      <namespace name="travel" full_name="tripsort\modules\travel"/>
+    </namespace>
+    <namespace name="utils" full_name="tripsort\utils">
+      <namespace name="interfaces" full_name="tripsort\utils\interfaces"/>
+      <namespace name="sorters" full_name="tripsort\utils\sorters"/>
+    </namespace>
+  </namespace>
+  <marker count="0">todo</marker>
+  <marker count="0">fixme</marker>
+  <deprecated count="0"/>
+</project>
